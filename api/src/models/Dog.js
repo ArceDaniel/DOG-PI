@@ -1,8 +1,14 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/db.js";
+import TEMPERAMENT from "./Temperaments.js";
 
 const BREED = sequelize.define('breed', {
-    
+  id:{
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+    },
+
   name: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -18,7 +24,7 @@ const BREED = sequelize.define('breed', {
     allowNull: false,
   },
 
-  life_span: {
+  lifeSpan: {
     type: DataTypes.STRING
 
   },
@@ -27,13 +33,12 @@ const BREED = sequelize.define('breed', {
     type: DataTypes.TEXT,
   },
 
-  apiId: {
-    type: DataTypes.INTEGER,
-    primaryKey: true,
-    autoIncrement: true,
-  }
-
 
 }, { timestamps: false });
+
+
+TEMPERAMENT.belongsToMany(BREED,{through: "TEMPERAMENT_BREED",timestamps:false})
+BREED.belongsToMany(TEMPERAMENT,{through: "TEMPERAMENT_BREED",timestamps:false})
+
 
 export default BREED;
