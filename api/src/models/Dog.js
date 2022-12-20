@@ -4,9 +4,9 @@ import TEMPERAMENT from "./Temperaments.js";
 
 const BREED = sequelize.define('breed', {
   id:{
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
     primaryKey: true,
-    autoIncrement: true,
+  
     },
 
   name: {
