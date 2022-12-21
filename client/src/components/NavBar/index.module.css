@@ -1,0 +1,53 @@
+.container{
+    background-color: rgb(255, 255, 255);
+    width: 99.75%;
+    height: 15vh;
+    display: grid;
+    grid-template-columns:50% 50%;
+    border: 2px solid var(--color-principal);
+    padding: 0;
+    position: fixed;
+    top: 0px;
+}
+.container div{
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-content: center;
+    justify-content: center;
+}
+
+.list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+.listItem {
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+}
+.listItem a {
+    color: inherit;
+    padding: 10px 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: all 600ms ease;
+    font-weight: bold;
+    border: 2px solid var(--color-principal);
+}
+.active {
+    background-color: var(--color-principal);
+}
+.listItem a:hover{
+    background-color: var(--color-principal);
+    color: black;
+    font-weight: bold;
+    transform: scale(1.05); 
+}

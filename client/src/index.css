@@ -1,8 +1,13 @@
+@font-face {
+  font-family: 'Dog';
+  src: url(./font/ennobled.ttf);
+}
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@500&family=Caveat&family=Concert+One&family=Courgette&family=Dangrek&family=Fredoka+One&family=Itim&family=Neucha&family=Pacifico&family=Pangolin&family=Patrick+Hand&family=Sniglet&family=Sono:wght@300;400;500;600&family=Space+Mono&display=swap");
+
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Sono", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +15,10 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+:root{
+--color-principal: rgb(255, 128, 0);
+--color-principal-degrade: rgba(255, 128, 0, 0.808);
+--color-principal-degrade-2: rgba(255, 128, 0, 0.098);
 }

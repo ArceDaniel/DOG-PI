@@ -1,0 +1,41 @@
+form{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.Bar {
+    width: 40%;
+    padding: 10px 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: all 600ms ease;
+    color: black;
+    outline: 0px;
+    font-weight: bold;
+    border: 2px solid var(--color-principal);
+}
+.Bar:hover{
+    transform: scale(1.05); 
+}
+.Bar:active{
+    background-color: var(--color-principal-degrade-2);
+    border: 2px solid var(--color-principal);
+}
+.Bar:focus{
+    text-decoration: none;
+    border: 2px solid var(--color-principal);
+}
+form::after{
+    content: '\f002';
+    font-family: 'font awesome 5 pro';
+    position: relative;
+    right: 40px;
+    top: 70%;
+    transform: translateY(-50%);
+    font-size: 25px;
+    color: var(--color-principal);
+}

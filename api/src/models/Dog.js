@@ -28,6 +28,10 @@ const BREED = sequelize.define('breed', {
     type: DataTypes.STRING
 
   },
+  isDB: {
+    type: DataTypes.BOOLEAN
+
+  },
 
   image: {
     type: DataTypes.TEXT,
