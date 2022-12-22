@@ -1,0 +1,49 @@
+.container{
+    width: 100%;
+    margin: 0;
+    margin-top: 20px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    justify-content: center;
+    gap: 0.5em;
+    column-gap: 1em;
+}
+
+.paginated {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+  }
+  .paginated li {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    width: 40px;
+    cursor: pointer;
+    box-shadow: 0 8px 14px 0 rgba(0,0,0,0.3);
+    border: 1px solid var(--color-principal);
+    background-color: bisque;
+    color: black;
+  }
+
+
+.paginated .active {
+
+  background: var(--color-principal);
+  color: rgb(255, 255, 255);
+}
+
+.paginated p {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+

@@ -8,6 +8,7 @@
     padding: 0;
     position: fixed;
     top: 0px;
+    z-index: 2;
 }
 .container div{
     margin: 0;
