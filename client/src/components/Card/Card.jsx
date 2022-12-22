@@ -2,8 +2,8 @@ import style from './index.module.css'
 
 
 export default function Card({breed}){
-  const {name, image, weight,height, lifeSpan,temperament} = breed;
-  const temp = temperament?.split(',').slice(0,3).join();
+  const {name, image, weight,height, lifeSpan,temperaments} = breed;
+  const temp = temperaments?.split(',').slice(0,3).join();
     return(
         <div className={style.flipCard}>
             <div className={style.flipCardInner}>

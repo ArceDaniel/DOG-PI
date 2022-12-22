@@ -13,7 +13,7 @@ const getAllDogs = async (name) => {
         return {
             image : e.image.url,
             name : e.name,
-            temperament : e.temperament,
+            temperaments : e.temperament,
             weight: e.weight.imperial,
             height: e.height.imperial,
             id : e.id,
@@ -53,7 +53,7 @@ const getAllDogs = async (name) => {
         return {
             image : e.image.url,
             name : e.name,
-            temperament : e.temperament,
+            temperaments : e.temperament,
             weight: e.weight.imperial,
             height: e.height.imperial,
             id : e.id,
@@ -111,7 +111,7 @@ const getDogApi = async (id) => {
     const foundDog = await dogs.find(d => d.id === parseInt(id))
     return foundDog   
 }
-const createBreed = async (name, height, weight, lifeSpan, image, temperaments) =>{
+const createBreed = async (name, height, weight, lifeSpan, image, temperament) =>{
     const newDog = await BREED.create(
         {
         id:'m' + uuidv4(),
@@ -122,11 +122,11 @@ const createBreed = async (name, height, weight, lifeSpan, image, temperaments) 
         image,
         isDB:true,
     });
-    await temperaments.map(async t =>{
+    await temperament.map(async t =>{
         const [temperament, boolean] = await TEMPERAMENT.findOrCreate({
           where:{name:t}
         })
-      newDog.addTemperaments(temperament)
+      newDog.addTemperament(temperament)
     });
   
     return newDog;

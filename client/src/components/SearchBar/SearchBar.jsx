@@ -1,11 +1,15 @@
+import { useDispatch } from 'react-redux';
+import { apiAllbyname } from '../../features/apiPetitions';
 import style from './index.module.css'
 
-export default function SearchBard({ setTitle, title }){
-    const handleSubmit = ()=>{
-        
+export default function SearchBard(){
+    const dispatch = useDispatch();
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        apiAllbyname(dispatch, e.target.value);
     }
-    const handleChange = ()=>{
-
+    const handleChange = (e)=>{
+        apiAllbyname(dispatch, e.target.value);
     }
     return(
         <form onSubmit={(e) => handleSubmit(e)}>
@@ -13,9 +17,8 @@ export default function SearchBard({ setTitle, title }){
             type="text"
             id="title"
             className={style.Bar}
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
             placeholder='Search breed'
-            value={title}
         />
     </form>
     )

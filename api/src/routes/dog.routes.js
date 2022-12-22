@@ -42,11 +42,11 @@ dogRoutes.get('/:idRaza', async (req,res)=>{
 })
 
 dogRoutes.post('/', async (req , res)=>{
-    const { name, height, weight, lifeSpan, image, temperaments } = req.body;
-    if(!name || !height || !weight || !lifeSpan || !temperaments) return res.status(400).send('faltan parametros');
+    const { name, height, weight, lifeSpan, image, temperament } = req.body;
+    if(!name || !height || !weight || !lifeSpan || !temperament) return res.status(400).send('faltan parametros');
     const existsBreed = await getAllDogs(name);
     if(existsBreed.length) return res.status(400).send('Existing breed')
-   const newDog = await createBreed(name, height, weight, lifeSpan, image, temperaments)
+   const newDog = await createBreed(name, height, weight, lifeSpan, image, temperament)
     return res.status(201).json(newDog);
 })
 

@@ -3,7 +3,7 @@
   src: url(./font/ennobled.ttf);
 }
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@500&family=Caveat&family=Concert+One&family=Courgette&family=Dangrek&family=Fredoka+One&family=Itim&family=Neucha&family=Pacifico&family=Pangolin&family=Patrick+Hand&family=Sniglet&family=Sono:wght@300;400;500;600&family=Space+Mono&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
 
 body {
   margin: 0;
@@ -22,4 +22,5 @@ code {
 --color-principal: rgb(255, 128, 0);
 --color-principal-degrade: rgba(255, 128, 0, 0.808);
 --color-principal-degrade-2: rgba(255, 128, 0, 0.098);
+--color-principal-degrade-3: rgba(255, 128, 0, 0.008);
 }
