@@ -3,7 +3,6 @@ import sequelize from "./src/config/db.js";
 import dotenv from "dotenv";
 import httpServer from "./src/config/http.js";
 
-
 dotenv.config();
 
 async function bootstrap() {
@@ -12,6 +11,7 @@ async function bootstrap() {
     console.log(`Servidor escuchando en el puerto ${process.env.PORT}`);
   });
 }
+
 bootstrap();
 
 export default bootstrap;

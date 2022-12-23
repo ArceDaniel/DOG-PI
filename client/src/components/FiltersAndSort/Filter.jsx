@@ -22,14 +22,14 @@ export default function Filter(){
         <h2>Filter</h2>
         <div className={style.filtercontaier}>
             <select onChange={handleChangeFilterTemp}>
-                <option value='all'>filter by temperament</option>
-                <option value='all'>all</option>
+                <option disabled selected >filter by temperament</option>
+                <option value='all'>ALL</option>
                 {
                     temperament.map(e => <option value={e} key={e}>{e}</option>)
                 }
             </select>
             <select onChange={handleChangeFilterDB}>
-                <option value='all'>filter by created</option>
+                <option disabled selected >filter by created</option>
                 <option value='all'>ALL</option>
                 <option value='' >API</option>
                 <option value='sdS'>DB</option>

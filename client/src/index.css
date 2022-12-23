@@ -20,7 +20,9 @@ code {
 
 :root{
 --color-principal: rgb(255, 128, 0);
+--color-principal-2: bisque;
 --color-principal-degrade: rgba(255, 128, 0, 0.808);
 --color-principal-degrade-2: rgba(255, 128, 0, 0.098);
 --color-principal-degrade-3: rgba(255, 128, 0, 0.008);
 }
+

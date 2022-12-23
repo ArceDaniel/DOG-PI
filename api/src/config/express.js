@@ -24,8 +24,8 @@ expressApp.use((req, res, next) => {
 
 
 // Routes
-expressApp.use('/dogs', dogRoutes)
-expressApp.use('/temperaments', temperamentRoutes)
+expressApp.use('/dogs', dogRoutes);
+expressApp.use('/temperaments', temperamentRoutes);
 
 // Error catching endware.
 expressApp.use((err, req, res, next) => { // eslint-disable-line no-unused-vars

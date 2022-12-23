@@ -54,6 +54,11 @@ button:hover{
     transform: scale(1.03);
     cursor: pointer;
 }
+button:active{
+    background-color: black;
+    transform: scale(0.99);
+    cursor: pointer;
+}
 select:hover{
     cursor: pointer;
     background-color: var(--color-principal-degrade-3);

@@ -5,7 +5,7 @@ import style from './index.module.css'
 export default function SearchBard(){
     const dispatch = useDispatch();
     const handleSubmit = (e)=>{
-        e.preventDefault();
+        e.preventdefault();
         apiAllbyname(dispatch, e.target.value);
     }
     const handleChange = (e)=>{
