@@ -1,8 +1,13 @@
 import style from './index.module.css'
-
+import imgDefault from '../../assets/dogDafault.png'
 
 export default function Card({breed}){
-  const {name, image, weight,height, lifeSpan,temperaments} = breed;
+  const {name,temperaments} = breed;
+  const image = breed.image || imgDefault;
+  const weight = breed.weight || `${breed.MinWeight}  ${breed.MaxWeight}`;
+  const height = breed.weight || `${breed.MinHeight}  ${breed.MaxHeight}`;
+  const lifeSpan = breed.lifeSpan || `${breed.MinLifeSpan}  ${breed.MaxLifeSpan} years`;
+  
   const temp = temperaments?.split(',').slice(0,3).join();
     return(
         <div className={style.flipCard}>

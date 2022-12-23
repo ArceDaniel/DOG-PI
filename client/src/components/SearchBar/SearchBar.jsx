@@ -12,7 +12,7 @@ export default function SearchBard(){
         apiAllbyname(dispatch, e.target.value);
     }
     return(
-        <form onSubmit={(e) => handleSubmit(e)}>
+        <form className={style.form} onSubmit={(e) => handleSubmit(e)}>
         <input
             type="text"
             id="title"
