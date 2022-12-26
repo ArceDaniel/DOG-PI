@@ -13,7 +13,7 @@ dogRoutes.get('/', async (req, res)=>{
         return res.status(200).json(dogs);
         
         }catch(err){
-            return res.status(400).send(err.message)
+            return res.status(400).json({err:err.message})
     }
 })
 

@@ -34,7 +34,7 @@ export default function Filter(){
                 <option value='' >API</option>
                 <option value='sdS'>DB</option>
             </select>
-            <button onClick={clearFilter}>
+            <button onClick={clearFilter} className={style.button}>
                 clear filter
             </button>
         </div>
