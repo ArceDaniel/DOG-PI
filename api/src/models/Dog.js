@@ -8,7 +8,6 @@ const BREED = sequelize.define(
     id: {
       type: DataTypes.STRING,
       primaryKey: true,
-      
     },
 
     name: {
