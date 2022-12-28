@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import validate from "./validate";
 import { apiPostBreed } from "../../features/apiPetitions.js";
+import Temperament from "./Temperaments";
 
 export default function Form() {
   const { temperament } = useSelector((state) => state.dog);
@@ -26,7 +27,6 @@ export default function Form() {
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
-    console.log(Object.keys(errors));
     setNewBreed({
       ...newBreed,
       [name]: value,
@@ -41,13 +41,12 @@ export default function Form() {
 
   const handleChangeTemperaments = (e) => {
     const { value } = e.target;
-    if (newBreed.temperaments.includes(value + " ")) {
-      return "puto";
-    }
+    if (newBreed.temperaments.includes(value + " ")) return;
     setNewBreed({
       ...newBreed,
-      temperaments: [value + " ", ...newBreed.temperaments],
+      temperaments: [value + " ", ...newBreed.temperaments.splice(0, 2)],
     });
+    setErrors(validate(newBreed));
   };
   const onsubmitnt = (e) => {
     e.preventDefault();
@@ -56,8 +55,8 @@ export default function Form() {
   const onsubmit = (e) => {
     e.preventDefault();
     apiPostBreed(newBreed)
-      .then((res) => navigate('/home'))
-      .catch((err) => console.log(err));
+      .then((res) => navigate("/home"))
+      .catch((err) => window.alert(err.response.data));
   };
   return (
     <>
@@ -68,6 +67,9 @@ export default function Form() {
               <NavLink to="/home"> 🢀 Back </NavLink>
             </div>
             {newBreed ? <Card breed={newBreed} /> : null}
+          </div>
+          <div>
+          <Temperament temp={newBreed.temperaments} setTemps = {setNewBreed} newBreed={newBreed} />
           </div>
         </div>
         <div className={style.columns}>
@@ -178,9 +180,8 @@ export default function Form() {
                   onChange={handleChangeTemperaments}
                 >
                   <option disabled value>
-                    filter by temperament
+                    select temperament
                   </option>
-                  <option value="all">ALL</option>
                   {temperament.map((e) => (
                     <option value={e} key={e}>
                       {e}

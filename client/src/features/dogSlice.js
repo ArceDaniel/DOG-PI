@@ -29,8 +29,8 @@ const dogSlice = createSlice({
             state.dogsFilter = filter;
         },
         filterByCreated(state, {payload}){
-            const allDogs = state.allDogs; 
-            const filter = payload === 'all' ? state.allDogs : allDogs.filter(el => {
+            const allDogs = state.dogsFilter; 
+            const filter = payload === 'all' ? allDogs : allDogs.filter(el => {
                 return el?.isDB === Boolean(payload)
             });
             state.dogsFilter = filter;

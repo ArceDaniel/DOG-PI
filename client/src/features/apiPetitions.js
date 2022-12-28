@@ -26,9 +26,9 @@ export async function apiPostBreed(newBreed) {
   return await axios
     .post("/dogs", {
       ...newBreed,
-      weight: `${newBreed.MinWeight}  ${newBreed.MaxWeight}`,
-      height: `${newBreed.MinHeight}  ${newBreed.MaxHeight}`,
-      lifeSpan: `${newBreed.MinLifeSpan}  ${newBreed.MaxLifeSpan}`,
+      weight: `${newBreed.MinWeight} - ${newBreed.MaxWeight}`,
+      height: `${newBreed.MinHeight} - ${newBreed.MaxHeight}`,
+      lifeSpan: `${newBreed.MinLifeSpan} - ${newBreed.MaxLifeSpan}`,
       temperament: newBreed.temperaments,
     })
 }

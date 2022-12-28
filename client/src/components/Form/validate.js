@@ -1,5 +1,5 @@
 const checkUndefined = (input) => {
-  if (!input.length) return true;
+  if (!input?.length) return true;
   for (let el in input) {
     if (input[el] === undefined) {
       return true;
@@ -62,7 +62,7 @@ const validate = (input) => {
   //check name
   if (!regexName.test(name)) {
     errors.name = "Invalid name format";
-  } else if (name.length < 4) {
+  } else if (name?.length < 4) {
     errors.name = "Name must be at least 4 characters";
   }
   //check negatives

@@ -1,45 +1,65 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { filterByCreated, filterByTemperament } from '../../features/dogSlice';
-import style from './index.module.css'
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { filterByCreated, filterByTemperament } from "../../features/dogSlice";
+import style from "./index.module.css";
 
-export default function Filter(){
-    const {temperament} = useSelector((state) => state.dog);
-    const dispatch = useDispatch();
+export default function Filter() {
+  const { temperament } = useSelector((state) => state.dog);
+  const dispatch = useDispatch();
+  const [filter, setFilter] = useState({
+    temperament: "all",
+    isDB: "all",
+  });
+  var temperaments = filter.temperament;
+  var isDB = filter.isDB;
 
-    function handleChangeFilterTemp(e){
-        dispatch(filterByTemperament(e.target.value))
-    };
-    function handleChangeFilterDB(e){
-        dispatch(filterByCreated(e.target.value))
-    };
-    function clearFilter(){
-        dispatch(filterByCreated('all'))
-        dispatch(filterByTemperament('all'))
-    }
-    return(
+  async function handleChangeFilterTemp(e) {
+    temperaments = e.target.value
+    setFilter({ ...filter, temperament: e.target.value });
+  }
+  function handleChangeFilterDB(e) {
+    isDB = e.target.value
+    setFilter({ ...filter, isDB: e.target.value });
+  }
+  function handleChangeForm(e) {
+    dispatch(filterByTemperament(temperaments));
+    dispatch(filterByCreated(isDB));
+  }
+  function clearFilter() {
+    dispatch(filterByCreated("all"));
+    dispatch(filterByTemperament("all"));
+  }
+  return (
     <>
-    <div className={style.container}>
+      <div className={style.container}>
         <h2>Filter</h2>
         <div className={style.filtercontaier}>
-            <select onChange={handleChangeFilterTemp}>
-                <option disabled selected >filter by temperament</option>
-                <option value='all'>ALL</option>
-                {
-                    temperament.map(e => <option value={e} key={e}>{e}</option>)
-                }
+          <form onChange={handleChangeForm}>
+            <select className={style.select} onChange={handleChangeFilterTemp}>
+              <option disabled selected>
+                filter by temperament
+              </option>
+              <option value="all">ALL</option>
+              {temperament.map((e) => (
+                <option value={e} key={e}>
+                  {e}
+                </option>
+              ))}
             </select>
-            <select onChange={handleChangeFilterDB}>
-                <option disabled selected >filter by created</option>
-                <option value='all'>ALL</option>
-                <option value='' >API</option>
-                <option value='sdS'>DB</option>
+            <select onChange={handleChangeFilterDB} className={style.select}>
+              <option disabled selected>
+                filter by created
+              </option>
+              <option value="all">ALL</option>
+              <option value="">API</option>
+              <option value="sdS">DB</option>
             </select>
-            <button onClick={clearFilter} className={style.button}>
-                clear filter
-            </button>
+          </form>
+          <button onClick={clearFilter} className={style.button}>
+            clear filter
+          </button>
         </div>
-    </div>
+      </div>
     </>
-    )
-    
+  );
 }

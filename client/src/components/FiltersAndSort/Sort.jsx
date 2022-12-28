@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { sortByWeight, sortByAsc, sortByChart } from '../../features/dogSlice';
+import { sortByWeight, sortByAsc } from '../../features/dogSlice';
 import style from './index.module.css'
 
 export default function Sort(){
@@ -17,11 +17,11 @@ export default function Sort(){
     <div className={style.container}>
         <h2>Sort</h2>
         <div className={style.filtercontaier}>
-            <select onChange={handleChangeSortAsc}>
+            <select  className={style.select} onChange={handleChangeSortAsc}>
              <option value='asc'>A-Z</option>
              <option value='des'>Z-A</option>
             </select>
-            <select onChange={handleChangeSortWeight}>
+            <select  className={style.select} onChange={handleChangeSortWeight}>
                <option value='max'>Max weight</option>
                <option value='min'>Min Weight</option>
             </select>
