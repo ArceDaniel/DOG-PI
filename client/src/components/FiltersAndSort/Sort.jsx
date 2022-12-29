@@ -14,7 +14,7 @@ export default function Sort(){
    
     return(
     <>
-    <div className={style.container}>
+    <div className={style.container} style={{marginBottom:'30px'}}>
         <h2>Sort</h2>
         <div className={style.filtercontaier}>
             <select  className={style.select} onChange={handleChangeSortAsc}>

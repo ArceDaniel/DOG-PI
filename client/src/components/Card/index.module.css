@@ -5,6 +5,7 @@
     height: 350px;
     perspective: 1000px;
     font-family: sans-serif;
+    cursor: pointer;
     z-index: 0;
 
   }

@@ -23,7 +23,7 @@ const checkNaN = (arr) => {
 const checkMinMax = (min, max) => {
   const nMax = Number(max);
   const nMin = Number(min);
-  if (nMin > nMax || nMin === nMax) return false; // comprueba si es mayor al menor
+  if (nMin > nMax) return false; // comprueba si es mayor al menor
   return true;
 };
 
@@ -88,7 +88,7 @@ const validate = (input) => {
     errors.zero = "The value must be greater than zero";
   }
   //check max
-  if (checkLimit([MinWeight, MaxWeight], 300)) {
+  if (checkLimit([MinWeight, MaxWeight], 200)) {
     errors.weight = "The weight can't be more than 300Kg";
   }
   if (checkLimit([MinHeight, MaxHeight], 200)) {

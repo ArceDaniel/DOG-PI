@@ -1,0 +1,65 @@
+.container {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  margin-top: 16vh;
+  margin-bottom: 20px;
+}
+
+.details {
+  width: 90%;
+  margin-top: 20px;
+  border: 2px solid var(--color-principal);
+  border-radius: 1rem;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.267);
+  display: grid;
+  grid-template-columns: 40% 60%;
+  justify-content: center;
+}
+
+.columns {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.listItem {
+  margin: 0 5px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: -20px;
+  left: -90px;
+}
+.listItem a {
+  color: inherit;
+  padding: 10px 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-decoration: none;
+  border-radius: 20px;
+  transition: all 600ms ease;
+  font-weight: bold;
+  font-family: "Sono";
+  font-size: 15px;
+  border: 2px solid var(--color-principal);
+}
+.listItem a:hover {
+  background-color: var(--color-principal);
+  color: black;
+  font-weight: bold;
+  transform: scale(1.05);
+}
+
+.name{
+    font-size: 50px;
+    text-align: center;
+}
+
+.text{
+    font-size: 20px;
+    margin: 10px;
+}

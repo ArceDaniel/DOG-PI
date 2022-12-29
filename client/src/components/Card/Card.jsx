@@ -1,5 +1,6 @@
 import style from "./index.module.css";
 import imgDefault from "../../assets/dogDafault.png";
+import { useNavigate } from "react-router-dom";
 
 export default function Card({ breed }) {
   const { name, temperaments } = breed;
@@ -11,8 +12,13 @@ export default function Card({ breed }) {
   const temp = Array.isArray(temperaments)
     ? temperaments.slice(0, 3).join()
     : temperaments?.split(",").slice(0, 3).join();
+
+  const navigate = useNavigate();
+  const click = () => {
+    navigate(`/details/${breed.id}`);
+  };
   return (
-    <div className={style.flipCard}>
+    <div className={style.flipCard} onClick={breed.id ? click : null}>
       <div className={style.flipCardInner}>
         <div className={style.flipCardFront}>
           <div className={style.imgContainer}>

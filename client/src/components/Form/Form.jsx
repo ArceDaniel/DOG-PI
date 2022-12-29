@@ -6,6 +6,7 @@ import { useState } from "react";
 import validate from "./validate";
 import { apiPostBreed } from "../../features/apiPetitions.js";
 import Temperament from "./Temperaments";
+import swal from "sweetalert";
 
 export default function Form() {
   const { temperament } = useSelector((state) => state.dog);
@@ -46,17 +47,27 @@ export default function Form() {
       ...newBreed,
       temperaments: [value + " ", ...newBreed.temperaments.splice(0, 2)],
     });
-    setErrors(validate(newBreed));
+    setErrors(validate({
+      ...newBreed,
+      temperaments: [value + " ", ...newBreed.temperaments.splice(0, 2)],
+    }));
   };
   const onsubmitnt = (e) => {
     e.preventDefault();
-    window.alert("All fields are required");
+    swal("error:(", `${Object.values(errors)[0]}`, "error");
   };
   const onsubmit = (e) => {
     e.preventDefault();
     apiPostBreed(newBreed)
-      .then((res) => navigate("/home"))
-      .catch((err) => window.alert(err.response.data));
+      .then((res) => {
+        swal({
+          title: "Successfully created breed!",
+          text: "Your breed is already in the home!",
+          icon: "success",
+          button: "go to Home!",
+        }).then((e) => navigate("/home"));
+      })
+      .catch((err) => swal("Error! :(", `${err.response.data}`, "error"));
   };
   return (
     <>
@@ -69,7 +80,11 @@ export default function Form() {
             {newBreed ? <Card breed={newBreed} /> : null}
           </div>
           <div>
-          <Temperament temp={newBreed.temperaments} setTemps = {setNewBreed} newBreed={newBreed} />
+            <Temperament
+              temp={newBreed.temperaments}
+              setTemps={setNewBreed}
+              newBreed={newBreed}
+            />
           </div>
         </div>
         <div className={style.columns}>
@@ -97,6 +112,8 @@ export default function Form() {
                     className={style.input}
                     id="heightInput"
                     type="number"
+                    min={0}
+                    max={200}
                     value={newBreed.MinHeight}
                     name="MinHeight"
                     onChange={handleChangeInput}
@@ -105,6 +122,8 @@ export default function Form() {
                   <input
                     id="heightInput"
                     type="number"
+                    min={0}
+                    max={200}
                     className={style.input}
                     value={newBreed.MaxHeight}
                     name="MaxHeight"
@@ -119,6 +138,8 @@ export default function Form() {
                   <input
                     id="weightInput"
                     type="number"
+                    min={0}
+                    max={200}
                     className={style.input}
                     value={newBreed.MinWeight}
                     name="MinWeight"
@@ -129,6 +150,8 @@ export default function Form() {
                   <input
                     id="weightInput"
                     type="number"
+                    min={0}
+                    max={200}
                     className={style.input}
                     value={newBreed.MaxWeight}
                     name="MaxWeight"
@@ -143,6 +166,8 @@ export default function Form() {
                   <input
                     id="lifeInput"
                     type="number"
+                    min={0}
+                    max={30}
                     className={style.input}
                     value={newBreed.MinLifeSpan}
                     name="MinLifeSpan"
@@ -152,6 +177,8 @@ export default function Form() {
                   <input
                     id="lifeInput"
                     type="number"
+                    min={0}
+                    max={30}
                     className={style.input}
                     value={newBreed.MaxLifeSpan}
                     name="MaxLifeSpan"

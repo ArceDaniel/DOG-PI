@@ -1,18 +1,21 @@
 .footer {
     background: var(--color-principal-2);
     border-top: 2px solid var(--color-principal);
-    box-shadow:  10px 5px 5px var(--color-principal-degrade);
+    border-bottom: 2px solid var(--color-principal);
     width: 100%;
     height: 100px;
     position: relative;
     bottom: 0;
     color: black;
+    margin: 0;
+    padding-bottom: -5px;
     z-index: 20;
 }
 
 .site_footer {
     display: flex;
     height: 100%;
+    gap: 20px;
     justify-content: space-between;
     align-items: center;
 
@@ -33,16 +36,14 @@
 
 .redes_sociales a{
     font-size: 3rem;
-    padding-left: 4rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
     color: var(--color-principal-2);
 }
 
-.redes_sociales a{
-    padding: 1.5rem;
-}
-
 .redes_sociales img{
-    width: 40px;
+    transition: all 500ms;
+    width: 30px;
 }
 .redes_sociales img:hover{
     transform: scale(1.1);
