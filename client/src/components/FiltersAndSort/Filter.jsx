@@ -13,12 +13,12 @@ export default function Filter() {
   var temperaments = filter.temperament;
   var isDB = filter.isDB;
 
-  async function handleChangeFilterTemp(e) {
-    temperaments = e.target.value
+  function handleChangeFilterTemp(e) {
+    temperaments = e.target.value;
     setFilter({ ...filter, temperament: e.target.value });
   }
   function handleChangeFilterDB(e) {
-    isDB = e.target.value
+    isDB = e.target.value;
     setFilter({ ...filter, isDB: e.target.value });
   }
   function handleChangeForm(e) {
@@ -26,6 +26,10 @@ export default function Filter() {
     dispatch(filterByCreated(isDB));
   }
   function clearFilter() {
+    setFilter({
+      temperament: "all",
+      isDB: "all",
+    });
     dispatch(filterByCreated("all"));
     dispatch(filterByTemperament("all"));
   }
@@ -35,7 +39,11 @@ export default function Filter() {
         <h2>Filter</h2>
         <div className={style.filtercontaier}>
           <form onChange={handleChangeForm}>
-            <select className={style.select} onChange={handleChangeFilterTemp}>
+            <select
+              className={style.select}
+              onChange={handleChangeFilterTemp}
+              value={temperaments}
+            >
               <option disabled selected>
                 filter by temperament
               </option>
@@ -46,7 +54,11 @@ export default function Filter() {
                 </option>
               ))}
             </select>
-            <select onChange={handleChangeFilterDB} className={style.select}>
+            <select
+              onChange={handleChangeFilterDB}
+              className={style.select}
+              value={isDB}
+            >
               <option disabled selected>
                 filter by created
               </option>

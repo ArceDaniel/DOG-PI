@@ -7,9 +7,18 @@ import CreateBreed from "./views/CreateBreed/CreateBreed";
 import Details from "./views/details/details";
 import Home from "./views/Home/Home.jsx";
 import Landing from "./views/Landing/Landing";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { apiAlldogs, apiAllTemperaments } from "./features/apiPetitions";
 
 function App() {
   const { pathname } = useLocation();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    apiAlldogs(dispatch);
+    apiAllTemperaments(dispatch);
+  }, []);
+
   return (
     <>
       {pathname !== "/" && <NavBar />}

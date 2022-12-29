@@ -57,7 +57,7 @@ const getAllDogs = async (name) => {
       weight: e.weight.imperial,
       height: e.height.imperial,
       id: e.id,
-      lifeTime: e.life_span,
+      lifeSpan: e.life_span || e.lifeTime,
       isDB: false,
     };
   });
@@ -83,6 +83,6 @@ const getAllDogs = async (name) => {
     e.temperaments = e.temperaments.map((e) => e.name).join();
     return e;
   });
-  return [...dogsDBMap, ...dogsDB];
+  return [...dogsDBMap, ...dogsApi];
 };
 export default getAllDogs;

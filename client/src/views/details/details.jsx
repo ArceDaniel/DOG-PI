@@ -40,8 +40,7 @@ export default function Details() {
               And measure between <strong>{breed?.height}</strong> cm.
             </p>
             <p className={style.text}>
-              Their average age is between <strong>{breed?.lifeSpan}</strong>{" "}
-              years
+              Their average age is between <strong>{breed?.lifeSpan}</strong>
             </p>
             <p className={style.text}>Their temperaments are: </p>
             <p className={style.text}>

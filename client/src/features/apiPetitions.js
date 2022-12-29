@@ -23,7 +23,7 @@ export async function apiPostBreed(newBreed) {
     ...newBreed,
     weight: `${newBreed.MinWeight} - ${newBreed.MaxWeight}`,
     height: `${newBreed.MinHeight} - ${newBreed.MaxHeight}`,
-    lifeSpan: `${newBreed.MinLifeSpan} - ${newBreed.MaxLifeSpan}`,
+    lifeSpan: `${newBreed.MinLifeSpan} - ${newBreed.MaxLifeSpan} year`,
     temperament: newBreed.temperaments,
   });
 }

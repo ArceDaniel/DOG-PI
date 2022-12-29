@@ -1,15 +1,16 @@
 import style from "./index.module.css";
 import Card from "../Card/Card.jsx";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import validate from "./validate";
-import { apiPostBreed } from "../../features/apiPetitions.js";
+import { apiAlldogs, apiPostBreed } from "../../features/apiPetitions.js";
 import Temperament from "./Temperaments";
 import swal from "sweetalert";
 
 export default function Form() {
   const { temperament } = useSelector((state) => state.dog);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [errors, setErrors] = useState({
     allFields: "All fields are required",
@@ -47,10 +48,12 @@ export default function Form() {
       ...newBreed,
       temperaments: [value + " ", ...newBreed.temperaments.splice(0, 2)],
     });
-    setErrors(validate({
-      ...newBreed,
-      temperaments: [value + " ", ...newBreed.temperaments.splice(0, 2)],
-    }));
+    setErrors(
+      validate({
+        ...newBreed,
+        temperaments: [value + " ", ...newBreed.temperaments.splice(0, 2)],
+      })
+    );
   };
   const onsubmitnt = (e) => {
     e.preventDefault();
@@ -66,6 +69,7 @@ export default function Form() {
           icon: "success",
           button: "go to Home!",
         }).then((e) => navigate("/home"));
+        apiAlldogs(dispatch);
       })
       .catch((err) => swal("Error! :(", `${err.response.data}`, "error"));
   };
