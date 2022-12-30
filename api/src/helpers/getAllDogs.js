@@ -5,20 +5,20 @@ import TEMPERAMENT from "../models/Temperaments.js";
 
 const getAllDogs = async (name) => {
   const api = await axios.get(`https://api.thedogapi.com/v1/breeds`);
+  const allDogsApi = await api.data.map((e) => {
+    return {
+      id: e.id,
+      name: e.name,
+      image: e.image.url,
+      temperaments: e.temperament,
+      weight: e.weight.imperial,
+      height: e.height.imperial,
+      lifeSpan: e.life_span,
+      isDB: false,
+    };
+  });
 
   if (!name) {
-    const dogsApi = await api.data.map((e) => {
-      return {
-        image: e.image.url,
-        name: e.name,
-        temperaments: e.temperament,
-        weight: e.weight.imperial,
-        height: e.height.imperial,
-        id: e.id,
-        lifeSpan: e.life_span,
-        isDB: false,
-      };
-    });
     const dogsDB = await BREED.findAll({
       include: [
         {
@@ -36,32 +36,18 @@ const getAllDogs = async (name) => {
       return e;
     });
 
-    return [...dogsDBMap, ...dogsApi];
+    return [...dogsDBMap, ...allDogsApi];
   }
-
-  const { data } = await axios(
+  //-------------------------     BY NAME  --------------------------------------- //
+  const apiName = await axios(
     `https://api.thedogapi.com/v1/breeds/search?q=${name}`
   );
 
-  const filterDogs = [];
-  await data.forEach(async (e) => {
-    const date = await api.data.find((f) => f.name === e.name);
-    if (date) filterDogs.push(date);
+  const allDogsApiName = [];
+  await apiName.data.forEach(async (e) => {
+    const data = await allDogsApi.find((f) => f.name === e.name);
+    if (data) filterDogs.push(data);
   });
-
-  const dogsApi = filterDogs.map((e) => {
-    return {
-      image: e.image.url,
-      name: e.name,
-      temperaments: e.temperament,
-      weight: e.weight.imperial,
-      height: e.height.imperial,
-      id: e.id,
-      lifeSpan: e.life_span || e.lifeTime,
-      isDB: false,
-    };
-  });
-
   const dogsDB = await BREED.findAll({
     where: {
       name: {
@@ -83,6 +69,6 @@ const getAllDogs = async (name) => {
     e.temperaments = e.temperaments.map((e) => e.name).join();
     return e;
   });
-  return [...dogsDBMap, ...dogsApi];
+  return [...dogsDBMap, ...allDogsApiName];
 };
 export default getAllDogs;

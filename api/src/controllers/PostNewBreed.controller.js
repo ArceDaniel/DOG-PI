@@ -7,7 +7,6 @@ export default async function postNewBreed(req, res) {
     return res.status(400).send("faltan parametros");
   try {
     const existsBreed = await getAllDogs(name);
-    console.log(existsBreed)
     if (existsBreed.length)
       return res.status(400).send("Existing breed");
     const newDog = await createBreed(
@@ -18,6 +17,7 @@ export default async function postNewBreed(req, res) {
       image,
       temperament,
     );
+    //if(!newDog) return res.status(400).json({ err: newDog });
     return res.status(201).json(newDog);
   } catch (err) {
     return res.status(500).json({ err: err.message });

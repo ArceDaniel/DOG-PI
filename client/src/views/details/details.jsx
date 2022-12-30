@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "../../features/axios.js";
 import Card from "../../components/Card/Card.jsx";
 import Loading from "../../components/Loading/Loading.jsx";
+import swal from "sweetalert";
 
 export default function Details() {
   const { id } = useParams();
@@ -13,9 +14,16 @@ export default function Details() {
     axios
       .get(`/dogs/${id}`)
       .then((e) => setBreed(e.data))
-      .catch((e) => {
-        window.alert(e.response.data);
-        navigate("/createBreed");
+      .catch((err) => {
+        console.clear();
+        swal({
+          title: "Error!",
+          text: `${err.response.data}`,
+          icon: "error",
+          button: "go to Home!",
+        }).then(() =>
+          navigate("/home")
+        );
       });
   }, [id]);
 
@@ -28,7 +36,7 @@ export default function Details() {
               <div className={style.listItem}>
                 <NavLink to="/home"> 🢀 Back </NavLink>
               </div>
-              {breed ? <Card breed={breed} /> :  <Loading />}
+              {breed ? <Card breed={breed} /> : <Loading />}
             </div>
           </div>
           <div className={style.columns}>

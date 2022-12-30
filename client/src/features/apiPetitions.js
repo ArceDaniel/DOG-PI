@@ -1,10 +1,15 @@
 import axios from "./axios.js";
 import { getAllDogs, getAllTemperament } from "./dogSlice";
 
+
 export async function apiAlldogs(dispatch) {
-  const peticion = await axios.get(`/dogs`);
-  dispatch(getAllDogs(peticion?.data));
-  return;
+  try {
+    const peticion = await axios.get(`/dogs`);
+    dispatch(getAllDogs(peticion?.data));
+    return;
+  } catch (error) {
+    return error.response;
+  }
 }
 
 export async function apiAllTemperaments(dispatch) {
