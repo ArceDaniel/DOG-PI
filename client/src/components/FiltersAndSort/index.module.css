@@ -77,7 +77,8 @@ select:hover{
     }
     .container{
         padding: 12px 0;
-        height: auto;
+        height: 180px;
+        display: flex;
     }
     .select{
         font-size: 14px;

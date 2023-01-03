@@ -1,7 +1,7 @@
 .container {
   background-color: rgb(255, 255, 255);
   width: 99.75%;
-  height: 90px;
+  height: 70px;
   display: grid;
   grid-template-columns: 50% 50%;
   border: 2px solid var(--color-principal);

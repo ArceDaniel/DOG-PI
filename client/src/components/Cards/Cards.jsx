@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import Pagination from "./Pagination";
 import Loading from "../Loading/Loading";
-import { useEffect } from "react";
+
 
 export default function Cards() {
   const state = useSelector((state) => state.dog);
@@ -13,7 +13,7 @@ export default function Cards() {
   const [dogsPerPage, setDogsPerPage] = useState(12);
   const indexOfLastDog = currentPage * dogsPerPage;
   const indexOfFirstDog = indexOfLastDog - dogsPerPage;
-  // useEffect(() => setCurrentPage(1), [state.dogsFilter]);
+ 
   const currentDogs = state.dogsFilter?.slice(indexOfFirstDog, indexOfLastDog);
 
   if (!state.dogsFilter.length) {
@@ -25,7 +25,7 @@ export default function Cards() {
           <Pagination
             dogsPerPage={dogsPerPage}
             allDogs={state.dogsFilter?.length}
-            currentPage={currentPage || 1}
+            currentPage={currentPage}
             paginado={setCurrentPage}
           />
         </div>
@@ -34,12 +34,14 @@ export default function Cards() {
             ? currentDogs.map((e) => <Card key={e.name} breed={e} />)
             : null}
         </div>
-        <Pagination
-          dogsPerPage={dogsPerPage}
-          allDogs={state.dogsFilter?.length}
-          currentPage={currentPage || 1}
-          paginado={setCurrentPage}
-        />
+        <div>
+          <Pagination
+            dogsPerPage={dogsPerPage}
+            allDogs={state.dogsFilter?.length}
+            currentPage={currentPage || 1}
+            paginado={setCurrentPage}
+          />
+        </div>
       </>
     );
   }

@@ -7,8 +7,8 @@ export default function Filter() {
   const { temperament } = useSelector((state) => state.dog);
   const dispatch = useDispatch();
   const [filter, setFilter] = useState({
-    temperament: "e",
-    isDB: "e",
+    temperament: "all",
+    isDB: "all",
   });
   var temperaments = filter.temperament;
   var isDB = filter.isDB;
@@ -21,14 +21,14 @@ export default function Filter() {
     isDB = e.target.value;
     setFilter({ ...filter, isDB: e.target.value });
   }
-  function handleChangeForm(e) {
+  function handleChangeForm() {
     dispatch(filterByTemperament(temperaments));
     dispatch(filterByCreated(isDB));
   }
   function clearFilter() {
     setFilter({
-      temperament: "e",
-      isDB: "e",
+      temperament: "all",
+      isDB: "all",
     });
     dispatch(filterByCreated("all"));
     dispatch(filterByTemperament("all"));
@@ -44,7 +44,7 @@ export default function Filter() {
               onChange={handleChangeFilterTemp}
               value={temperaments}
             >
-              <option disabled selected value='e'>
+              <option disabled selected value='all'>
                 filter by temperament
               </option>
               <option value="all">ALL</option>
@@ -59,7 +59,7 @@ export default function Filter() {
               className={style.select}
               value={isDB}
             >
-              <option disabled selected value='e'>
+              <option disabled selected value='all'>
                 filter by created
               </option>
               <option value="all">ALL</option>

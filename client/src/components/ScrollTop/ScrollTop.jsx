@@ -8,7 +8,7 @@ function ScrollToTop() {
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      const isTop = window.scrollY > 100 && window.scrollY < document.documentElement.scrollHeight-650;
+      const isTop = window.scrollY > 100 && window.scrollY < document.documentElement.scrollHeight-window.screen.height;
       if (isTop == true) {
         setShowScroll(true);
       } else {

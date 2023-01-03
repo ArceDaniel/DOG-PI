@@ -1,11 +1,12 @@
 .container{
     width: 100%;
     margin: 0;
-    margin-top: 20px;
+    margin-top: 15px;
     padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     gap: 0.5em;
     column-gap: 1em;
 }
@@ -27,6 +28,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+    height: 65px;
     width: 40px;
     cursor: pointer;
     box-shadow: 0 8px 14px 0 rgba(0,0,0,0.3);
@@ -43,8 +45,26 @@
 }
 
 .paginated p {
-    font-family: 'Sono';
+  font-family: 'Sono';
   font-size: 1.3rem;
   font-weight: bold;
 }
 
+.disabled {
+  pointer-events: none;
+  color: rgba(0, 0, 0, 0.43);
+}
+.disabled:hover {
+  background-color: transprent;
+  cursor: default;
+}
+
+@media (max-width:400px) {
+  .paginated li{
+    width: 30px;
+    height: 50px;
+  }
+  .paginated p{
+    font-size: 1rem;
+  }
+}
