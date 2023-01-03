@@ -7,11 +7,11 @@
 }
 .svg-arrow polygon, .svg-arrow path {
     transition: all 0.5s cubic-bezier(.2,1,.3,1);
-    fill: var(--title_page);
+    fill: black
 }
 .svg-arrow:hover polygon, .svg-arrow:hover path {
     transition: all 1s cubic-bezier(.2,1,.3,1);
-    fill: rgb(0, 183, 255);
+    fill: var(--color-principal)
 }
 .svg-arrow:hover .arrow {
     animation: arrow-anim 2.5s cubic-bezier(.2,1,.3,1) infinite;

@@ -1,54 +1,184 @@
-.container{
-    background-color: rgb(255, 255, 255);
-    width: 99.75%;
-    height: 15vh;
-    display: grid;
-    grid-template-columns:50% 50%;
-    border: 2px solid var(--color-principal);
-    padding: 0;
-    position: fixed;
-    top: 0px;
-    z-index: 20;
+.container {
+  background-color: rgb(255, 255, 255);
+  width: 99.75%;
+  height: 90px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  border: 2px solid var(--color-principal);
+  padding: 0;
+  position: fixed;
+  top: 0px;
+  z-index: 20;
 }
-.container div{
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    align-content: center;
-    justify-content: center;
+.container div {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  align-content: center;
+  justify-content: center;
 }
 
 .list {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }
 .listItem {
-    margin: 0 5px;
-    display: flex;
-    align-items: center;
+  margin: 0 5px;
+  display: flex;
+  align-items: center;
 }
 .listItem a {
-    color: inherit;
-    padding: 10px 20px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: all 600ms ease;
-    font-weight: bold;
-    border: 2px solid var(--color-principal);
+  color: inherit;
+  padding: 10px 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-decoration: none;
+  border-radius: 20px;
+  transition: all 600ms ease;
+  font-weight: bold;
+  border: 2px solid var(--color-principal);
 }
 .active {
-    background-color: var(--color-principal);
+  background-color: var(--color-principal);
 }
-.listItem a:hover{
-    background-color: var(--color-principal);
-    color: black;
-    font-weight: bold;
-    transform: scale(1.05); 
+.listItem a:hover {
+  background-color: var(--color-principal);
+  color: black;
+  font-weight: bold;
+  transform: scale(1.05);
+}
+
+@media (max-width: 750px) {
+  .navToggler {
+    height: 60px;
+    width: 60px;
+    cursor: pointer;
+    left: 300px;
+    top: 20px;
+    border-radius: 5px;
+    background: var(--bg-black-100);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: all 900ms ease;
+    z-index: 30;
+  }
+  .navTogglerOpen {
+    cursor: pointer;
+    left: 300px;
+    top: 20px;
+    border-radius: 5px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: all 900ms ease;
+    z-index: 30;
+  }
+
+  .navToggler span {
+    height: 5px;
+    width: 35px;
+    border-radius: 12px;
+    background: var(--color-principal);
+    display: inline-block;
+    position: relative;
+  }
+  .navTogglerOpen span {
+    height: 5px;
+    width: 35px;
+    border-radius: 12px;
+    background-color: transparent;
+    display: inline-block;
+    position: relative;
+  }
+
+  .navToggler span::before {
+    content: " ";
+    height: 5px;
+    width: 35px;
+    border-radius: 12px;
+    background: var(--color-principal);
+    position: absolute;
+    top: -12px;
+    left: 0;
+  }
+
+  .navTogglerOpen span::before {
+    box-sizing: border-box;
+    content: " ";
+    height: 5px;
+    width: 35px;
+    border-radius: 12px;
+    background: var(--color-principal);
+    position: absolute;
+    left: 0;
+    transform: rotate(45deg);
+    top: 0;
+  }
+
+  .navToggler span::after {
+    content: " ";
+    height: 5px;
+    width: 35px;
+    border-radius: 12px;
+    background: var(--color-principal);
+    position: absolute;
+    top: 12px;
+    left: 0;
+  }
+
+  .navTogglerOpen span::after {
+    content: " ";
+    height: 5px;
+    width: 35px;
+    border-radius: 12px;
+    background: var(--color-principal);
+    position: absolute;
+    left: 0;
+    transform: rotate(-45deg);
+    top: 0;
+  }
+  .container {
+    grid-template-columns: 80% 20%;
+  }
+  .list {
+    width: auto;
+    background: wheat;
+    position: fixed;
+    right: 0;
+    top: 0;
+    border-radius: 0px 0px 14px 14px;
+    padding: 30px;
+    border: 2px solid var(--color-principal);
+    box-shadow: 20px 2px 12px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    transition: all 0.8s ease;
+    right: 0;
+    padding-top: 70px;
+  }
+  .listOpen{
+    right: -700px;
+    /* top:-700px; */
+  }
+  .listItem {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+  .listItem a {
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }

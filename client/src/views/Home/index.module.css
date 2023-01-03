@@ -11,3 +11,20 @@
     flex-wrap: wrap;
     align-content: flex-start;
 }
+
+@media (max-width: 1000px) {
+    .container{
+        display: block;
+    }
+    .filter{
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+}
+
+@media (max-width: 430px) {
+    .filter{
+        display: flex;
+        justify-content: center;
+    }
+}

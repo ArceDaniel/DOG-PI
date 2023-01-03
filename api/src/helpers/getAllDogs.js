@@ -46,7 +46,7 @@ const getAllDogs = async (name) => {
   const allDogsApiName = [];
   await apiName.data.forEach(async (e) => {
     const data = await allDogsApi.find((f) => f.name === e.name);
-    if (data) filterDogs.push(data);
+    if (data) allDogsApiName.push(data);
   });
   const dogsDB = await BREED.findAll({
     where: {

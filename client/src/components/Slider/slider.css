@@ -65,7 +65,7 @@
     cursor: pointer;
 }
 .dot.active {
-    background: rgb(0, 183, 255);
+    background: var(--color-principal)
 }
 
 @media (max-width: 640px) {
