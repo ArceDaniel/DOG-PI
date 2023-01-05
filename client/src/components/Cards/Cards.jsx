@@ -13,6 +13,7 @@ export default function Cards() {
   const [dogsPerPage, setDogsPerPage] = useState(12);
   const indexOfLastDog = currentPage * dogsPerPage;
   const indexOfFirstDog = indexOfLastDog - dogsPerPage;
+  
  
   const currentDogs = state.dogsFilter?.slice(indexOfFirstDog, indexOfLastDog);
 

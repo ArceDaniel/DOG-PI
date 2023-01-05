@@ -21,23 +21,20 @@ export default function Details() {
           text: `${err.response.data}`,
           icon: "error",
           button: "go to Home!",
-        }).then(() =>
-          navigate("/home")
-        );
+        }).then(() => navigate("/home"));
       });
   }, [id]);
 
   return (
     <>
       <div className={style.container}>
-        <div className={style.details}>
-          <div className={style.columns}>
-            <div>
-              <div className={style.listItem}>
-                <NavLink to="/home"> 🢀 Back </NavLink>
-              </div>
-              {breed ? <Card breed={breed} /> : <Loading />}
+            <div className={style.listItem}>
+              <NavLink to="/home"> 🢀 Back </NavLink>
             </div>
+          {breed?(
+        <div className={style.details}>
+            <div className={style.columns}>
+            <div className={style.card}> <Card breed={breed} /></div>
           </div>
           <div className={style.columns}>
             <h2 className={style.name}>{breed?.name}</h2>
@@ -57,6 +54,7 @@ export default function Details() {
             </p>
           </div>
         </div>
+        ):<Loading />}
       </div>
     </>
   );

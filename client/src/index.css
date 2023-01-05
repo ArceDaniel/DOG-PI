@@ -11,11 +11,8 @@ body {
   font-family: "Sono", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  position: relative;
+  min-height: 600px;
 }
 
 :root{

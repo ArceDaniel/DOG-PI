@@ -11,7 +11,8 @@ export default function SearchBard() {
   const [input, SetInput] = useState();
   const handleSubmit = (e) => {
     e.preventDefault();
-    apiAllbyname(dispatch, input).catch((err) => {
+    apiAllbyname(dispatch, input)
+    .catch((err) => {
       swal({
         title: "Error!",
         text: `${err.response.data}`,

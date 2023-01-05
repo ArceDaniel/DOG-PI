@@ -11,7 +11,7 @@ export default function Temperament({ temp, setTemps, newBreed }) {
     <div className={style.temps}>
       {temp.map((e) => (
         <button onClick={click} key={e} value={e} className={style.btn}>
-          {e} <span>X</span>
+          {e}
         </button>
       ))}
     </div>

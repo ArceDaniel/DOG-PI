@@ -76,20 +76,11 @@ export default function Form() {
   return (
     <>
       <div className={style.container}>
-        <div className={style.columns}>
-          <div>
-            <div className={style.listItem}>
-              <NavLink to="/home"> 🢀 Back </NavLink>
-            </div>
-            {newBreed ? <Card breed={newBreed} /> : null}
+        <div className={`${style.columns} ${style.card}`}>
+          <div className={style.listItem}>
+            <NavLink to="/home"> 🢀 Back </NavLink>
           </div>
-          <div>
-            <Temperament
-              temp={newBreed.temperaments}
-              setTemps={setNewBreed}
-              newBreed={newBreed}
-            />
-          </div>
+          <div>{newBreed ? <Card breed={newBreed} /> : null}</div>
         </div>
         <div className={style.columns}>
           <div className={style.formContainer}>
@@ -219,6 +210,13 @@ export default function Form() {
                     </option>
                   ))}
                 </select>
+ 
+                  <Temperament
+                    temp={newBreed.temperaments}
+                    setTemps={setNewBreed}
+                    newBreed={newBreed}
+                  />
+       
                 {errors.temp && (
                   <span className={style.error}>{errors.temp} </span>
                 )}

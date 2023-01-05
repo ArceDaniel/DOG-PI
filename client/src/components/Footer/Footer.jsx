@@ -4,15 +4,8 @@ import linkedin from "../../assets/linkedin-logo.png";
 import portafolio from "../../assets/domain.png";
 export default function Footer() {
   return (
-    <div className={styles.footer}>
+    <footer className={styles.footer}>
       <div className={styles.site_footer}>
-        <div className={styles.copyright}>
-          <p>
-            Page created by ArceDaniel
-            <br />
-            &copy; 2023. All Rights Reserved.
-          </p>
-        </div>
         <div className={styles.redes_sociales}>
           <a
             href="https://www.linkedin.com/in/jonathandanielarce/"
@@ -36,7 +29,14 @@ export default function Footer() {
             <img src={portafolio} alt="portafolio" />
           </a>
         </div>
+        <div className={styles.copyright}>
+          <p>
+            Page created by ArceDaniel
+            <br />
+            &copy; 2023. All Rights Reserved.
+          </p>
+        </div>
       </div>
-    </div>
+    </footer>
   );
 }
